@@ -50,12 +50,14 @@ def validate_data(schema_fields: dict[str, type], data: dict) -> ValidationResul
     schema_keys = set(schema_fields.keys())
     data_keys = set(data.keys())
 
+    # check for missing required fields and type mismatches
     for f in schema_keys - data_keys:
         errors.append(ValidationError(
             field_name=f, expected=schema_fields[f].__name__, received=None,
             message=f"Missing required field: '{f}'",
         ))
 
+    # check for extra fields that are not in the schema
     for f in data_keys - schema_keys:
         warnings.append(ValidationError(
             field_name=f, expected="(not in schema)", received=data[f],
@@ -63,6 +65,7 @@ def validate_data(schema_fields: dict[str, type], data: dict) -> ValidationResul
             message=f"Unknown field '{f}' — may indicate a schema addition",
         ))
 
+    # check for type mismatches in the fields that are present in both the schema and the data
     for f in schema_keys & data_keys:
         expected_type = schema_fields[f]
         value = data[f]

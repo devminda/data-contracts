@@ -1,6 +1,26 @@
 # data-contracts
 
+![CI](https://github.com/devminda/data-contracts/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Topics](https://img.shields.io/badge/topics-metaclasses%20·%20schema%20evolution%20·%20data%20contracts-purple)
+
 Schema evolution framework for Python data pipelines — detects breaking changes before they break your consumers.
+
+---
+
+## Blog series
+
+A full write-up of how this project was built, covering metaclasses, schema diffing, the Observer pattern, and pytest testing patterns.
+
+| | Post | 
+|---|---|
+| Part 1 | [Data Contracts in Python — Auto-Registering Schemas, Breaking Change Detection and Consumer Notifications](https://devminda.com/data-contracts-in-python-auto-registering-schemas-breaking-change-detection-and-consumer-notifications) |
+| Part 2 | [Inside the Engine — How a Python Metaclass Automatically Registers Data Schemas](https://devminda.com/inside-the-engine-how-a-python-metaclass-automatically-registers-data-schemas) |
+| Part 3 | [Breaking vs Safe — How the Diff Engine Detects Schema Changes and Notifies Consumers](https://devminda.com/breaking-vs-safe-how-the-data-contracts-diff-engine-detects-schema-changes-and-notifies-consumers) |
+| Part 4 | [How to Test a Python Project — Global State, Metaclasses, Parametrize and Edge Cases](https://devminda.com/how-to-test-a-python-framework-global-state-metaclasses-parametrize-and-edge-cases) |
+
+---
 
 ## The problem
 
@@ -42,7 +62,7 @@ report.print_report()
 ```bash
 pip install data-contracts
 # or from source:
-git clone https://github.com/yourname/data-contracts
+git clone https://github.com/devminda/data-contracts
 cd data-contracts && make install
 ```
 
@@ -90,4 +110,4 @@ make all         # everything
 
 ## Background
 
-Data contracts are how companies like Airbnb, Netflix, and Uber enforce reliability across hundreds of pipelines. This framework implements the core primitive: a schema that knows its own version history and can detect breaking changes between versions.
+Data contracts are how companies like Airbnb, Netflix, and Uber enforce reliability across hundreds of pipelines. This project implements the core primitive: a schema that knows its own version history and can detect breaking changes between versions.

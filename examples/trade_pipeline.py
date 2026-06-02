@@ -46,3 +46,16 @@ bus.register(Consumer("Risk system", "risk@firm.com",  ["TradeSchemaV1"]))
 bus.register(Consumer("ML pipeline", "ml@firm.com",    ["TradeSchemaV1"]))
 bus.notify(report)
 print(f"\n{len(bus.get_log())} notification(s) sent.")
+
+# check the registry state after the new schema is registered
+class TradeSchemaV2(ContractBase):
+    __version__ = "3.0.0"
+    symbol: str
+    close_price: float   # renamed from price (BREAKING)
+    volume: int
+    timestamp: str       # added (SAFE)
+
+latest = SchemaRegistry.get_latest("TradeSchemaV2")
+history = SchemaRegistry.get_history("TradeSchemaV2")
+print(f"\nLatest version: {latest.version} with fields {list(latest.fields.keys())}")
+print(f"Version history: {[(v.version, list(v.fields.keys())) for v in history]}")

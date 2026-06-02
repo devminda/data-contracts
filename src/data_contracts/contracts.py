@@ -9,6 +9,7 @@ class ContractMeta(type):
     def __new__(mcs, name: str, bases: tuple, namespace: dict) -> "ContractMeta":
         cls = super().__new__(mcs, name, bases, namespace)
 
+        # if its the base class itself, just return it without processing
         if name == "ContractBase":
             return cls
 
