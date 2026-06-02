@@ -1,7 +1,7 @@
 # data-contracts
 
 ![CI](https://github.com/devminda/data-contracts/actions/workflows/ci.yml/badge.svg)
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Topics](https://img.shields.io/badge/topics-metaclasses%20·%20schema%20evolution%20·%20data%20contracts-purple)
 
